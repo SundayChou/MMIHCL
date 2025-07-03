@@ -49,7 +49,7 @@ For raw data stored in other formats, we recommend first converting them to h5ad
 
 <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(128, 128, 128, 0.75), rgba(0, 0, 0, 0));">
 
-## Tutorial
+## Tutorials
 
 Example 1: Weak Linkage Dataset Integration on CITE-seq PBMC, see [tutorial_1.ipynb](./mmihcl/tutorial_1.ipynb).
 
