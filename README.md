@@ -1,4 +1,4 @@
-# MMIHCL: Single-Cell Multimodal Data Integration through Hypergraph Contrastive Learning
+# MMIHCL: Single-Cell Data Integration across Weakly Linked Modalities
 
 <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(128, 128, 128, 0.75), rgba(0, 0, 0, 0));">
 
