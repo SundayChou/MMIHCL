@@ -78,18 +78,31 @@ def evalGraphConnectivity(mat, anno):
     return GC
 
 
-def evalAvgSilhouetteWidth(mat, anno):
+def evalASWLabelNBatch(emb_adata):
     """
-    Evaluate the average silhouette width (ASW) of embedding matrix.
-    The higher ASW, the better performance.
+    Evaluate the Average Silhouette Width (ASW) for cell type labels and batches.
+    The higher ASW label and ASW batch, the better performance.
 
     Parameters:
-    mat (numpy.ndarray): The cell embedding matrix.
-    anno (numpy.ndarray): The cell annotation array.
+    emb_adata (anndata.AnnData): The annotated data matrix.
+        It should contain embeddings in .X, and 'cell type', 'data type' in .obs.
 
     Returns:
-    ASW (float): The ASW of embedding matrix.
+    ASW_label (float): The scaled average silhouette width for cell type labels.
+    ASW_batch (float): The scaled average silhouette width for batches.
     """
-    ASW = (silhouette_score(mat, anno).item() + 1) / 2
-
-    return ASW
+    raw_ASW_label = silhouette_score(
+        X=emb_adata.X, 
+        labels=emb_adata.obs['cell type'],
+        metric='euclidean'
+    )
+    ASW_label = (raw_ASW_label + 1) / 2
+    
+    raw_ASW_batch = silhouette_score(
+        X=emb_adata.X, 
+        labels=emb_adata.obs['data type'],
+        metric='euclidean'
+    )
+    ASW_batch = 1 - np.abs(raw_ASW_batch)
+    
+    return ASW_label, ASW_batch
