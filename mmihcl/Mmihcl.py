@@ -141,7 +141,7 @@ class MMIHCL:
             print('Two GCN aggregate matrices have been calculation calculated.')
 
     def learnEmbeddings(self, init_embeds_1, init_embeds_2, hyperedge_dim=32, n_epochs=1000, 
-                        n_layers=2, learn_rate=2e-2, weight_decay=1e-3, temp=0.1, verbose=False):
+                        n_layers=2, learn_rate=2e-2, weight_decay=1e-2, temp=0.1, verbose=False):
         """
         Learn hypergraph-based cell embeddings.
 
